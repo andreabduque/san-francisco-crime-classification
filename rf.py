@@ -18,7 +18,7 @@ clf = RandomForestClassifier(n_estimators = 100)
 for train_index, test_index in skf.split(X, y):
 	classifier = clf.fit(X.loc[train_index], y.loc[train_index])
 	predictions = classifier.predict_proba(X.loc[test_index])
-	l_l = log_loss(df.Category.loc[test_index], predictions)
+	l_l = log_loss(y.loc[test_index], predictions)
 	print(l_l)
 	break
 
